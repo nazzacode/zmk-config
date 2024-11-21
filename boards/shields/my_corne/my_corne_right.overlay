@@ -6,7 +6,7 @@
 
 #include "my_corne.dtsi"
 
-&default_transform {
+&kscan0 {
     col-offset = <6>;
 };
 
