@@ -41,7 +41,7 @@
         diode-direction = "col2row";
 		row-gpios = 
 			<&gpio0 24 GPIO_ACTIVE_LOW>,
-			<&gpio0  0 GPIO_ACTIVE_LOW>,
+			<&gpio1  0 GPIO_ACTIVE_LOW>,
 			<&gpio0 11 GPIO_ACTIVE_LOW>;
 		// columns = <10>;
 		// rows = <4>;
