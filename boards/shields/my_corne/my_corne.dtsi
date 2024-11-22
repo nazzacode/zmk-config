@@ -26,7 +26,7 @@
 	// };
 
 	kscan0: kscan {
-		compatible = "zmk,matrix-transform"; // MAYBE? "zmk,kscan-gpio-matrix";
+		compatible = "zmk,kscan-gpio-matrix";
 		// label = "KSCAN";
 
 		// map = <
@@ -43,8 +43,6 @@
 			<&gpio0 24 GPIO_ACTIVE_LOW>,
 			<&gpio0  0 GPIO_ACTIVE_LOW>,
 			<&gpio0 11 GPIO_ACTIVE_LOW>;
-
-
 		// columns = <10>;
 		// rows = <4>;
 	};
