@@ -41,7 +41,7 @@
    &kp Q      &kp W      &kp E       &kp R       &kp T         &kp Y     &kp U       &kp I       &kp O      &kp P    
    &mt LGUI A &mt LALT S &mt LCTRL D &mt LSHFT F &kp G         &kp SEMI  &mt RSHFT H  &mt RCTRL J &mt RALT K &mt RGUI L
    &kp Z      &kp X      &kp C       &kp V       &kp B         &kp N     &kp M       &kp COMMA   &kp DOT    &kp FSLH 
-                         &mkp MB1  &kp BSPC  &kp SPACE   &kp RET &kp SPACE &mkp MB1
+                         &mkt 3 MB1  &lt 0 BSPC  &lt 4 SPACE   &lt 2 RET &lt 1 SPACE &mkt 3 MB1
         >; };
 
 // : SYMBOL Layer (1)
@@ -51,12 +51,12 @@
 // |  {  |  [  |  ]  |  }  |  #  |   |  _  |  =  |  ~  |  |  |  \  |
 //             | MB1 | BSP | SPC |   | RET |     | MB1 |             
 ////             L1  | L2  | L3        L4  |  L5 |  L6               
-//         symbol_layer{ bindings = <
-//    &kp EXCL &kp AT   &kp HASH &kp DLLR &kp PRCNT   &kp CARET &kp AMPS  &kp GRAVE  &kp APOS  &kp DQT
-//    &kp LT   &kp LPAR &kp RPAR &kp GT   &kp QMARK   &kp COLON &kp PLUS  &kp MINUS  &kp ASTRK &kp FSLH
-//    &kp LBRC &kp LBKT &kp RBKT &kp RBRC &kp NUHS    &kp UNDER &kp EQUAL &kp TILDE2 &kp PIPE  &kp BSLH
-//                      &trans   &trans   &trans      &trans    &trans    &trans    
-//         >; };
+        symbol_layer{ bindings = <
+   &kp EXCL &kp AT   &kp HASH &kp DLLR &kp PRCNT   &kp CARET &kp AMPS  &kp GRAVE  &kp APOS  &kp DQT
+   &kp LT   &kp LPAR &kp RPAR &kp GT   &kp QMARK   &kp COLON &kp PLUS  &kp MINUS  &kp ASTRK &kp FSLH
+   &kp LBRC &kp LBKT &kp RBKT &kp RBRC &kp NUHS    &kp UNDER &kp EQUAL &kp TILDE2 &kp PIPE  &kp BSLH
+                     &trans   &trans   &trans      &trans    &trans    &trans    
+        >; };
 
 // : NUM Layer (2)
 // -----------------------------------------------------------------
@@ -65,12 +65,12 @@
 // |     |  %  |  .  |  =  |     |   |     |  +  |  -  |  *  |  /  |
 //             | MB1 | BSP | SPC |   | RET |     | MB1 |
 ////             L1  | L2  | L3        L4  |  L5 |  L6               
-//         num_layer{ bindings = <
-//    &kp N1 &kp N2    &kp N3  &kp N4    &kp N5   &kp PSCRN &kp HOME &kp END   &kp INS   &kp DEL
-//    &kp N6 &kp N7    &kp N8  &kp N9    &kp N0   &trans    &kp LEFT &kp DOWN  &kp UP    &kp RIGHT
-//    &trans &kp PRCNT &kp DOT &kp EQUAL &trans   &trans    &kp PLUS &kp MINUS &kp ASTRK &kp FSLH
-//                     &trans  &trans    &trans   &trans    &trans   &trans    
-//         >; };
+        num_layer{ bindings = <
+   &kp N1 &kp N2    &kp N3  &kp N4    &kp N5   &kp PSCRN &kp HOME &kp END   &kp INS   &kp DEL
+   &kp N6 &kp N7    &kp N8  &kp N9    &kp N0   &trans    &kp LEFT &kp DOWN  &kp UP    &kp RIGHT
+   &trans &kp PRCNT &kp DOT &kp EQUAL &trans   &trans    &kp PLUS &kp MINUS &kp ASTRK &kp FSLH
+                    &trans  &trans    &trans   &trans    &trans   &trans    
+        >; };
 // TODO: try 3x3 numpad?
 
 // : MOUSE Layer (3)
@@ -80,12 +80,12 @@
 // |     |     |     |     |     |   |     |     |     |     |     |
 //             | MB1 | BSP | SPC |   | RET |     | MB1 |             
 ////             L1  | L2  | L3        L4  |  L5 |  L6               
-//         mouse_layer{ bindings = <
-//    &none    &none    &none    &none    &none     &none    &none    &none    &none    &none  
-//    &mkp MB4 &mkp MB2 &mkp MB3 &mkp MB1 &mkp MB5  &mkp MB5 &mkp MB1 &mkp MB3 &mkp MB2 &mkp MB4
-//    &none    &none    &none    &none    &none     &none    &none    &none    &none    &none  
-//                      &trans   &trans   &trans    &trans   &trans   &trans
-//         >; };
+        mouse_layer{ bindings = <
+   &none    &none    &none    &none    &none     &none    &none    &none    &none    &none  
+   &mkp MB4 &mkp MB2 &mkp MB3 &mkp MB1 &mkp MB5  &mkp MB5 &mkp MB1 &mkp MB3 &mkp MB2 &mkp MB4
+   &none    &none    &none    &none    &none     &none    &none    &none    &none    &none  
+                     &trans   &trans   &trans    &trans   &trans   &trans
+        >; };
 
 // : FUNCTION Layer (4)
 // ------------------------------------------------------------------
@@ -94,12 +94,12 @@
 // |     |     | F11 | F12 |     |   |     |     |     |     |     |
 //             | MB1 | BSP | SPC |   | RET |     | MB1 |             
 ////             L1  | L2  | L3        L4  |  L5 |  L6               
-//         function_layer{ bindings = <
-//    &kp F6 &kp F7 &kp F8  &kp F9  &kp F10   &none    &none    &none    &none    &none
-//    &kp F1 &kp F2 &kp F3  &kp F4  &kp F5    &none    &none    &none    &none    &none
-//    &none  &none  &kp F11 &kp F12 &none     &none    &none    &none    &none    &none
-//                  &trans  &trans  &trans    &trans   &trans   &trans
-//         >; };
+        function_layer{ bindings = <
+   &kp F6 &kp F7 &kp F8  &kp F9  &kp F10   &none    &none    &none    &none    &none
+   &kp F1 &kp F2 &kp F3  &kp F4  &kp F5    &none    &none    &none    &none    &none
+   &none  &none  &kp F11 &kp F12 &none     &none    &none    &none    &none    &none
+                 &trans  &trans  &trans    &trans   &trans   &trans
+        >; };
 
 // : MEDIA Layer
 // ------------------------------------------------------------------
