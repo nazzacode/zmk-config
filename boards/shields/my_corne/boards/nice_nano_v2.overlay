@@ -1,6 +1,7 @@
 #include <dt-bindings/led/led.h>
 #include <zephyr/dt-bindings/input/input-event-codes.h>
 
+
 &pinctrl {
     spi3_default: spi3_default {
         group1 {
@@ -17,7 +18,7 @@
 
     spi0_default: spi0_default {
         group1 {
-            // SCLC, SDIO (IN), SDIO (OUT)
+            /* SCLC, SDIO (IN), SDIO (OUT) */
             psels = <NRF_PSEL(SPIM_SCK, 0, 20)>,
                 <NRF_PSEL(SPIM_MOSI, 0, 17)>,
                 <NRF_PSEL(SPIM_MISO, 0, 17)>;
@@ -26,7 +27,7 @@
 
     spi0_sleep: spi0_sleep {
         group1 {
-            // SCLC, SDIO (IN), SDIO (OUT)
+            /* SCLC, SDIO (IN), SDIO (OUT) */
             psels = <NRF_PSEL(SPIM_SCK, 0, 20)>,
                 <NRF_PSEL(SPIM_MOSI, 0, 17)>,
                 <NRF_PSEL(SPIM_MISO, 0, 17)>;
@@ -41,7 +42,7 @@
     pinctrl-0 = <&spi0_default>;
     pinctrl-1 = <&spi0_sleep>;
     pinctrl-names = "default", "sleep";
-    // nCS
+    /* nCS */
     cs-gpios = <&gpio0 22 GPIO_ACTIVE_LOW>;
 
     trackball: trackball@0 {
@@ -49,7 +50,7 @@
         compatible = "pixart,pmw3610";
         reg = <0>;
         spi-max-frequency = <2000000>;
-        // Mot 
+        /* Mot */
         irq-gpios = <&gpio0 24 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
         cpi = <600>;
         evt-type = <INPUT_EV_REL>;
