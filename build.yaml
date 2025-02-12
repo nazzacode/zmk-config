@@ -17,7 +17,7 @@
 #     artifact-name: corne_left_with_logging
 #
 ---
-shield: ["embodi_left, embodi_right"]
+shield: ["embodi_left", "embodi_right"]
 board: ["nice_nano_v2"]
 
 # old
