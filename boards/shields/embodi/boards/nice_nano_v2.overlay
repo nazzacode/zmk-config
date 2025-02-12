@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2020 Pete Johanson
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
 #include <zephyr/dt-bindings/input/input-event-codes.h>
 
 // Pin Control (pinctrl) configuration block
@@ -30,7 +36,7 @@
     pinctrl-names = "default", "sleep";
 
     
-    // Chip Select (CS) pin configuration
+    // Chip Select (nCS) pin configuration
     cs-gpios = <&gpio0 22 GPIO_ACTIVE_LOW>;
 
     // Trackball device configuration
@@ -39,7 +45,7 @@
         compatible = "pixart,pmw3610";
         reg = <0>;
         spi-max-frequency = <2000000>;
-        // Mot 
+        // Motion sensor on P0.24 
         irq-gpios = <&gpio0 24 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
         cpi = <600>;
         evt-type = <INPUT_EV_REL>;

@@ -1,0 +1,25 @@
+/*
+ * Copyright (c) 2020 Pete Johanson
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+#include "embodi.dtsi"
+
+&default_transform {
+    col-offset = <8>;
+};
+
+&kscan0 {
+    // TODO: update for RSH (copied from left)
+    col-gpios = 
+                                       // (8 left end offset)
+        <&gpio0 31  GPIO_ACTIVE_LOW>,  //  8 pinky
+        <&gpio0 29  GPIO_ACTIVE_LOW>,  //  9 ring
+        <&gpio0  2  GPIO_ACTIVE_LOW>,  // 10 middle
+        <&gpio0 10  GPIO_ACTIVE_LOW>,  // 11 index c1
+        <&gpio0  9  GPIO_ACTIVE_LOW>,  // 12 index c2
+        <&gpio0  8  GPIO_ACTIVE_LOW>,  // 13 thumb b2 
+        <&gpio0 11  GPIO_ACTIVE_LOW>,  // 14 thumb b3
+        <&gpio1  6  GPIO_ACTIVE_LOW>;  // 15 thumb b1
+};

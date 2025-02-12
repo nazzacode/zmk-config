@@ -40,3 +40,7 @@ To use this shield configuration:
    ```
 
 3. Build your firmware using the standard ZMK build process.
+
+## Notes
+
+- Keyboard matrix gpios can go in `.dtsi` or `my_keyboard_left.overlay` (see zmk/microdox for example of the second).
