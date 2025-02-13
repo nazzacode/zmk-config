@@ -21,8 +21,8 @@ shield: ["embodi_left", "embodi_right"]
 board: ["nice_nano_v2"]
 
 # old
-include:
-  - board: nice_nano_v2
-    shield: my_corne_left
-  - board: nice_nano_v2
-    shield: my_corne_right
+# include:
+#   - board: nice_nano_v2
+#     shield: my_corne_left
+#   - board: nice_nano_v2
+#     shield: my_corne_right
