@@ -8,15 +8,12 @@
 
 //kscan0 is the keyboard scanner driver (typically kscan-matrix in Zephyr).
 &kscan0 {
-    col-gpios = 
-        <&gpio0 31  GPIO_ACTIVE_LOW>,  // 0 pinky
-        <&gpio0 29  GPIO_ACTIVE_LOW>,  // 1 ring
-        <&gpio0  2  GPIO_ACTIVE_LOW>,  // 2 middle
-        <&gpio0 10  GPIO_ACTIVE_LOW>,  // 3 index c1
-        <&gpio0  9  GPIO_ACTIVE_LOW>,  // 4 index c2
-        <&gpio0  8  GPIO_ACTIVE_LOW>,  // 5 thumb b2 
-        <&gpio0 11  GPIO_ACTIVE_LOW>,  // 6 thumb b3
-        <&gpio1  6  GPIO_ACTIVE_LOW>;  // 7 thumb b1
-                                       // (8 right offset)
+    col-gpios = <&gpio0 31  GPIO_ACTIVE_LOW>  // 0 pinky
+              , <&gpio0 29  GPIO_ACTIVE_LOW>  // 1 ring
+              , <&gpio0  2  GPIO_ACTIVE_LOW>  // 2 middle
+              , <&gpio0 10  GPIO_ACTIVE_LOW>  // 3 index c1
+              , <&gpio0  9  GPIO_ACTIVE_LOW>  // 4 index c2
+              , <&gpio0  0  GPIO_ACTIVE_LOW>; // 5 thumb
+                                              // (6 right thumb)
 };
 // HINT: watch for , vs ; at end of list.
