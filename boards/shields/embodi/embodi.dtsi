@@ -48,8 +48,8 @@
 			= <&gpio1 15 GPIO_ACTIVE_LOW>
 			, <&gpio1 13 GPIO_ACTIVE_LOW>
 			, <&gpio1 11 GPIO_ACTIVE_LOW>
-			, <&gpio0 06 GPIO_ACTIVE_LOW>
-			, <&gpio1 00 GPIO_ACTIVE_LOW>
-			, <&gpio1 04 GPIO_ACTIVE_LOW>;
+			, <&gpio0  6 GPIO_ACTIVE_LOW>
+			, <&gpio1  0 GPIO_ACTIVE_LOW>
+			, <&gpio1  4 GPIO_ACTIVE_LOW>;
 	};
 };
