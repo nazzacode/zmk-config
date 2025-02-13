@@ -33,9 +33,7 @@
     compatible = "nordic,nrf-spim";  // Specify the Nordic SPI controller type
     pinctrl-0 = <&spi0_default>;     // Use default pin configuration
     pinctrl-1 = <&spi0_sleep>;       // Use sleep pin configuration when in sleep mode
-    pinctrl-names = "default", "sleep";
-
-    
+    pinctrl-names = "default", "sleep"; 
     // Chip Select (nCS) pin configuration
     cs-gpios = <&gpio0 22 GPIO_ACTIVE_LOW>;
 

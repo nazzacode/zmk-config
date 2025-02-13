@@ -47,7 +47,7 @@
 		//  TODO: check col2row for thumb buttons?
 			= <&gpio1 15 GPIO_ACTIVE_LOW>
 			, <&gpio1 13 GPIO_ACTIVE_LOW>
-			, <&gpio1 11  GPIO_ACTIVE_LOW>
+			, <&gpio1 11 GPIO_ACTIVE_LOW>
 			, <&gpio0 06 GPIO_ACTIVE_LOW>
 			, <&gpio1 00 GPIO_ACTIVE_LOW>
 			, <&gpio1 04 GPIO_ACTIVE_LOW>;
