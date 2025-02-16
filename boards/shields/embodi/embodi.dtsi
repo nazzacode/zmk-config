@@ -45,8 +45,8 @@
         diode-direction = "col2row";
 		row-gpios 
 		//  TODO: check col2row for thumb buttons?
-			= <&gpio1 15 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+			= <&gpio1 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
 			, <&gpio1 13 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-			, <&gpio1 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
+			, <&gpio1 15 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
 	};
 };
