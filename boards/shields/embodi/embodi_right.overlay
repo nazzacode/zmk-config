@@ -12,7 +12,7 @@
 
 &kscan0 {
     // TODO: update for RSH (copied from left)
-                                              // (5 left thumb)
+                                               // (5 left thumb)
     col-gpios = <&gpio0 31  GPIO_ACTIVE_HIGH>  //  6 pinky
               , <&gpio0 29  GPIO_ACTIVE_HIGH>  //  7 ring
               , <&gpio0  2  GPIO_ACTIVE_HIGH>  //  8 middle
