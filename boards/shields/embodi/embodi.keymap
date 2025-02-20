@@ -39,9 +39,9 @@
 
 // Settings
 // ---------------------------------------------------------------------------
-&settings_save {
-    persistent-output = "ble";  // Default to Bluetooth output
-};
+// &settings_save {
+//     persistent-output = "ble";  // Default to Bluetooth output
+// };
 
 // Keymap
 // ---------------------------------------------------------------------------
