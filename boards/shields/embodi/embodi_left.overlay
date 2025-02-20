@@ -21,3 +21,7 @@
 	, <&gpio1 13 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // row 1
 	, <&gpio1 15 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>; // row 2
 };
+
+&zmk_split {
+    split-role = "central";
+};
