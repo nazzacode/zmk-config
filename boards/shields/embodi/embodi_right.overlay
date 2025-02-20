@@ -7,21 +7,20 @@
 #include "embodi.dtsi"
 
 &default_transform {
-    col-offset = <8>;
+    col-offset = <6>;
 };
 
 &kscan0 {
-                                         // (5 left thumb)
-    col-gpios 
-        = <&gpio0  9  GPIO_ACTIVE_HIGH>  //  6 thumb
-        , <&gpio0 10  GPIO_ACTIVE_HIGH>  //  7 index outside
-        , <&gpio1 11  GPIO_ACTIVE_HIGH>  //  8 index inside
-        , <&gpio0 29  GPIO_ACTIVE_HIGH>  //  9 middle
-        , <&gpio0 31  GPIO_ACTIVE_HIGH>  // 10 ring
-        , <&gpio1  0  GPIO_ACTIVE_HIGH>; // 11 pinky
+    col-gpios                        // (5 left thumb)
+    = <&gpio1  0  GPIO_ACTIVE_HIGH>  //  6 thumb
+    , <&gpio0  9  GPIO_ACTIVE_HIGH>  //  7 index outside
+    , <&gpio1 10  GPIO_ACTIVE_HIGH>  //  8 index inside
+    , <&gpio1 11  GPIO_ACTIVE_HIGH>  //  9 middle
+    , <&gpio0 29  GPIO_ACTIVE_HIGH>  // 10 ring
+    , <&gpio1 31  GPIO_ACTIVE_HIGH>; // 11 pinky
 
 	row-gpios 
-		= <&gpio0  2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // row 0
-		, <&gpio1 15 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // row 1
-		, <&gpio1 13 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>; // row 2
+	= <&gpio0  2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // row 0
+	, <&gpio1 15 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // row 1
+	, <&gpio1 13 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>; // row 2
 };
