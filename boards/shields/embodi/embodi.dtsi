@@ -43,10 +43,9 @@
 		compatible = "zmk,kscan-gpio-matrix";
 		// ? "col2row" means current flows from columns to rows
         diode-direction = "col2row";
-		row-gpios 
-		//  TODO: check col2row for thumb buttons?
-			= <&gpio1 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // L-row0
-			, <&gpio1 13 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // L-row1
-			, <&gpio1 15 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>; // L-row2
+		// row-gpios 
+		// 	= <&gpio1 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // L-row0
+		// 	, <&gpio1 13 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // L-row1
+		// 	, <&gpio1 15 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>; // L-row2
 	};
 };
