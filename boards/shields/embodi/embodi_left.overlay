@@ -17,7 +17,7 @@
         , <&gpio1  0  GPIO_ACTIVE_HIGH>; // 5 thumb
                                               // (6 right thumb)
 	row-gpios 
-		= <&gpio1 11 (gpio_active_high | gpio_pull_down)>  // row 0
-		, <&gpio1 13 (gpio_active_high | gpio_pull_down)>  // row 1
-		, <&gpio1 15 (gpio_active_high | gpio_pull_down)>; // row 2
+		= <&gpio1 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // row 0
+		, <&gpio1 13 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // row 1
+		, <&gpio1 15 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>; // row 2
 };

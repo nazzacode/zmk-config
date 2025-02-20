@@ -22,7 +22,7 @@
         , <&gpio0  0  GPIO_ACTIVE_HIGH>; // 11 pinky
 
 	row-gpios 
-		= <&gpio0  2 (gpio_active_high | gpio_pull_down)>  // row 0
-		, <&gpio1 15 (gpio_active_high | gpio_pull_down)>  // row 1
-		, <&gpio1 13 (gpio_active_high | gpio_pull_down)>; // row 2
+		= <&gpio0  2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // row 0
+		, <&gpio1 15 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // row 1
+		, <&gpio1 13 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>; // row 2
 };
