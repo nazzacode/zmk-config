@@ -9,9 +9,10 @@
 // Imports
 // ---------------------------------------------------------------------------
 #include <behaviors.dtsi>
-#include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/mouse.h>
+#include <dt-bindings/zmk/outputs.h>
 
 / {
 // Behaviors
@@ -39,11 +40,11 @@
 //             | MB1 | BSP | SPC |   | RET |     | MB1 |             // 1 space? ESC, TAB, DEL? (if we could get 4...)
 ////             L3  | L0  | L4        L2  |  L1 |  L3               // | Hold 
         default_layer{ bindings = <
-   &kp Q      &kp W      &kp E       &kp R       &kp T         &kp Y     &kp U       &kp I       &kp O      &kp P    
-   &kp A      &kp S      &kp D       &kp F       &kp G         &kp SEMI  &kp H       &kp J       &kp K      &kp L
-   &kp Z      &kp X      &kp C       &kp V       &kp B         &kp N     &kp M       &kp COMMA   &kp DOT    &kp FSLH 
-                                     &kp BSPC    &kp SPACE     &kp RET   &kp SPACE 
-                                     &mkp MB1                            &mkp MB1
+   &out OUT_BLE &kp W      &kp E       &kp R       &kp T         &kp Y     &kp U       &kp I       &kp O      &kp P    
+   &kp A        &kp S      &kp D       &kp F       &kp G         &kp SEMI  &kp H       &kp J       &kp K      &kp L
+   &kp Z        &kp X      &kp C       &kp V       &kp B         &kp N     &kp M       &kp COMMA   &kp DOT    &kp FSLH 
+                                       &kp BSPC    &kp SPACE     &kp RET   &kp SPACE 
+                                       &mkp MB1                            &mkp MB1
         >; };
 
 // PREVIOUS COMPLEX VERSION CAUSING ERRORS?
