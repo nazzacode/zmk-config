@@ -41,7 +41,6 @@
 	// Define keyboard scanning (kscan)
 	kscan0: kscan {
 		compatible = "zmk,kscan-gpio-matrix";
-		// ? "col2row" means current flows from columns to rows
         diode-direction = "col2row";
 		// row-gpios 
 		// 	= <&gpio1 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // L-row0
