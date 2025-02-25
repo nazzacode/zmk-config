@@ -9,7 +9,7 @@ Note: "shield" refers to the actual keyboard PCB or circuit board that connects 
 ```sh
 boards/shields/my_keyboard/
 ├── boards/
-│   └── nice_nano_v2.overlay  # Board-specific device tree overlay (SPI, trackball)
+│   └── nice_nano_v2.overlay   # Board-specific device tree overlay (SPI, trackball)
 ├── Kconfig.defconfig          # Default config for shield (names, vars, etc.)
 ├── Kconfig.shield             # Shield configuration options (minimal?)
 ├── my_keyboard_left.conf      # low-power, BLE, pointing devices, display, etc.
