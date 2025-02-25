@@ -30,96 +30,63 @@
 // ---------------------------------------------------------------------------
     keymap { compatible = "zmk,keymap";
 
-// : DEFAULT Layer (0)
-// -----------------------------------------------------------------
-// |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U  |  I  |  O  |  P  | 
-// |  A  |  S  |  D  |  F  |  G  |   |  ;  |  H  |  J  |  K  |  L  | 
+// old (complex version)
 //// GUI | ALT | CRL | SFT | HYP       HYP | SFT | CRL | ALT | GUI   // | Hold
 ////    ESC | TAB | SPC                         RET |     | BSP      // | Chord 
-// |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M  |  ,  |  .  |  /  | 
-//             | MB1 | BSP | SPC |   | RET |     | MB1 |             // 1 space? ESC, TAB, DEL? (if we could get 4...)
 ////             L3  | L0  | L4        L2  |  L1 |  L3               // | Hold 
-
-        default_layer{ bindings = <
-   &kp Q      &kp W      &kp E       &kp R       &kp T         &kp Y     &kp U       &kp I       &kp O      &kp P    
-   &kp A      &kp S      &kp D       &kp F       &kp G         &kp SEMI  &kp H       &kp J       &kp K      &kp L
-   &kp Z      &kp X      &kp C       &kp V       &kp B         &kp N     &kp M       &kp COMMA   &kp DOT    &kp FSLH 
-                                     &kp BSPC    &kp SPACE     &kp RET   &kp SPACE 
-                                     &mkp MB1                            &mkp MB1
-        >;};       
-
-// PREVIOUS COMPLEX VERSION CAUSING ERRORS? 
-//         default_layer{ bindings = <
 //    &kp Q      &kp W      &kp E       &kp R       &kp T         &kp Y     &kp U       &kp I       &kp O      &kp P    
 //    &mt LGUI A &mt LALT S &mt LCTRL D &mt LSHFT F &kp G         &kp SEMI  &mt RSHFT H  &mt RCTRL J &mt RALT K &mt RGUI L
 //    &kp Z      &kp X      &kp C       &kp V       &kp B         &kp N     &kp M       &kp COMMA   &kp DOT    &kp FSLH 
 //                          &mkt 3 MB1  &lt 0 BSPC  &lt 4 SPACE   &lt 2 RET &lt 1 SPACE &mkt 3 MB1
-//         >; };
 
-// : SYMBOL Layer (1)
-// ------------------------------------------------------------------
-// |  !  |  @  |  £  |  $  |  %  |   |  ^  |  &  |  `  |  '  |  "  |
-// |  <  |  (  |  )  |  >  |  ?  |   |  :  |  +  |  -  |  *  |  /  |
-// |  {  |  [  |  ]  |  }  |  #  |   |  _  |  =  |  ~  |  |  |  \  |
-//             | MB1 | BSP | SPC |   | RET |     | MB1 |             
-////             L1  | L2  | L3        L4  |  L5 |  L6               
-//         symbol_layer{ bindings = <
-//    &kp EXCL &kp AT   &kp HASH &kp DLLR &kp PRCNT   &kp CARET &kp AMPS  &kp GRAVE  &kp APOS  &kp DQT
-//    &kp LT   &kp LPAR &kp RPAR &kp GT   &kp QMARK   &kp COLON &kp PLUS  &kp MINUS  &kp ASTRK &kp FSLH
-//    &kp LBRC &kp LBKT &kp RBKT &kp RBRC &kp NUHS    &kp UNDER &kp EQUAL &kp TILDE2 &kp PIPE  &kp BSLH
-//                      &trans   &trans   &trans      &trans    &trans    &trans    
-//         >; };
-
-// : NUM Layer (2)
+// : DEFAULT Layer (0)
 // -----------------------------------------------------------------
-// |  1  |  2  |  3  |  4  |  5  |   |PSCRN| HOME| END | INS | DEL |
-// |  6  |  7  |  8  |  9  |  0  |   |     | LFT | DWN |  UP | RGT |
-// |     |  %  |  .  |  =  |     |   |     |  +  |  -  |  *  |  /  |
-//             | MB1 | BSP | SPC |   | RET |     | MB1 |
-////             L1  | L2  | L3        L4  |  L5 |  L6               
-//         num_layer{ bindings = <
-//    &kp N1 &kp N2    &kp N3  &kp N4    &kp N5   &kp PSCRN &kp HOME &kp END   &kp INS   &kp DEL
-//    &kp N6 &kp N7    &kp N8  &kp N9    &kp N0   &trans    &kp LEFT &kp DOWN  &kp UP    &kp RIGHT
-//    &trans &kp PRCNT &kp DOT &kp EQUAL &trans   &trans    &kp PLUS &kp MINUS &kp ASTRK &kp FSLH
-//                     &trans  &trans    &trans   &trans    &trans   &trans    
-//         >; };
-// TODO: try 3x3 numpad?
+// |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U  |  I  |  O  |  P  | 
+// |  A  |  S  |  D  |  F  |  G  |   | ;(:)|  H  |  J  |  K  |  L  | 
+// |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M  | ,(<)| .(>)| /(?)| 
+//                   | ESC | BSP |   | SPC | RET |                  
+//                   | TAB |               | MB1 |  
+// IDEA: could use mod-morph to give thumb clusters 2nd behaviour?
 
-// : MOUSE Layer (3)
-// -----------------------------------------------------------------
-// |     |     |     |     |     |   |     |     |     |     |     |
-// | MB4 | MB2 | MB3 | MB1 | MB5 |   | MB5 | MB1 | MB3 | MB2 | MB4 |
-// |     |     |     |     |     |   |     |     |     |     |     |
-//             | MB1 | BSP | SPC |   | RET |     | MB1 |             
-////             L1  | L2  | L3        L4  |  L5 |  L6               
-//         mouse_layer{ bindings = <
-//    &none    &none    &none    &none    &none     &none    &none    &none    &none    &none  
-//    &mkp MB4 &mkp MB2 &mkp MB3 &mkp MB1 &mkp MB5  &mkp MB5 &mkp MB1 &mkp MB3 &mkp MB2 &mkp MB4
-//    &none    &none    &none    &none    &none     &none    &none    &none    &none    &none  
-//                      &trans   &trans   &trans    &trans   &trans   &trans
-//         >; };
+        default_layer{ bindings = <
 
-// : FUNCTION Layer (4)
-// ------------------------------------------------------------------
-// |  F6 |  F7 |  F8 |  F9 | F10 |   |     |     |     |     |     |
-// |  F1 |  F2 |  F3 |  F4 |  F5 |   |     |     |     |     |     |
-// |     |     | F11 | F12 |     |   |     |     |     |     |     |
-//             | MB1 | BSP | SPC |   | RET |     | MB1 |             
-////             L1  | L2  | L3        L4  |  L5 |  L6               
-//         function_layer{ bindings = <
-//    &kp F6 &kp F7 &kp F8  &kp F9  &kp F10   &none    &none    &none    &none    &none
-//    &kp F1 &kp F2 &kp F3  &kp F4  &kp F5    &none    &none    &none    &none    &none
-//    &none  &none  &kp F11 &kp F12 &none     &none    &none    &none    &none    &none
-//                  &trans  &trans  &trans    &trans   &trans   &trans
-//         >; };
+   &kp Q &kp W &kp E &kp R     &kp T        &kp Y       &kp U    &kp I     &kp O   &kp P    
+   &kp A &kp S &kp D &kp F     &kp G        &kp SEMI    &kp H    &kp J     &kp K   &kp L
+   &kp Z &kp X &kp C &kp V     &kp B        &kp N       &kp M    &kp COMMA &kp DOT &kp FSLH 
+                     &lt 2 ESC &lt 1 BSPC   &kp SPACE   &kp RET
+                     &lt 3 TAB                            &mkp MB1
 
-// : MEDIA Layer
-// ------------------------------------------------------------------
-// |     |  PP | PRV | NXT |     |   |     |     |     |     |     |
-// |  BD |  BU |  VD |  VU | MTE |   |     |     |     |     |     |
-// |     |     |  SS |     |     |   |     |     |     |     |     |
-//             |     |     |     |   |     |     |     |
-// WHERE: BD=brightness-down, VU=volume-up, MTE=mute, PP=play-pause-toggle, SS=screenshot
+        >;};       
+// ? &lt not on spc as you hold it ?
+
+// : NUM Layer (1)
+// |  !  |  "  |  £  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  |
+// |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  |
+// | `(¬)| '(@)| -(_)| +(=)| #(~)|   | \(|)|  {  |  [  |  ]  |  }  |
+
+        num_layer{ bindings = <
+
+   &kp EXCL &kp DQT  &kp HASH  &kp DLLR &kp PRCNT &kp CARET &kp AMPS &kp ASTRK &kp LPAR &kp RPAR
+   &kp N1   &kp N2   &kp N3    &kp N4   &kp N5    &kp N6    &kp N7   &kp N8    &kp N9   &kp N0 
+   &kp GRAVE&kp APOS &kp MINUS &kp PLUS &kp NUHS  &kp BSLH  &kp LBRC &kp LBKT  &kp RBKT &kp LBRC
+                               &trans   &trans    &trans    &trans    
+                               &trans                       &trans 
+
+        >; };
+
+// : FN Layer (2)
+// |  F1 |  F2 |  F3 |  F4 |  F5 |   | F6  |  F7 |  F8 |  F9 | F10 |
+// | F11 | F12 |  PP | PRV | NXT |   | SST | LFT | DWN |  UP | RGT |
+// |  VD |  VU |  BD |  BU | MTE |   | MB5 | MB1 | MB3 | MB2 | MB4 |
+
+        fn_layer{ bindings = <
+
+   &kp F1       &kp F2       &kp F3       &kp F4       &kp F5       &kp F6    &kp F7   &kp F8   &kp F9   &kp F10
+   &kp F11      &kp F12      &kp C_PP     &kp C_PREV   &kp C_NEXT   &kp PSCRN &kp LFT  &kp DWN  &kp UP   &kp RGT
+   &kp C_BRI_DN &kp C_BRI_UP &kp C_VOL_DN &kp C_VOL_UP &kp C_MUTE   &mkp MB5  &mkp MB1 &mkp MB3 &mkp MB2 &mkp MB4
+                                          &trans       &trans       &trans    &trans   
+                                          &trans                              &trans
+        >; };
 
 // : SETTINGS Layer
 // -----------------------------------------------------------------
@@ -129,10 +96,41 @@
 //             |     |     |     |   |     |     |     |
 // WHERE: RST=reset, BCL=bluetooth-clear
 
+        settings_layer{ bindings = <
+
+   &sys_reset &bootloader    &none    &none    &none     &none    &kp HOME &kp END  &kp INS  &kp DEL  
+   &bt BT_CLR &bt BT_CLR_ALL &none    &none    &none     &none    &none    &none    &none    &none  
+   &none      &none          &none    &none    &none     &none    &none    &none    &none    &none  
+                                      &trans   &trans    &trans   &trans   
+                                      &trans                      &trans
+
+        >; };
     };
 };
 
+// Unused Layers
+// ---------------------------------------------------------------------------
 
+// : NUM Layer (1) - Keypad
+// |     |     |     |     |     |   |  +  |  7  |  8  |  9  |  *  |
+// |     |     |     |     |     |   |  =  |  4  |  5  |  6  |  0  |
+// |     |     |     |     |     |   |  -  |  1  |  2  |  3  |  /  |
+// missing: . % ^ _ ,
+// note: qute like it. simple no?
+
+// : NUM & NAV Layer (1) - 2 rows
+// -----------------------------------------------------------------
+// |  1  |  2  |  3  |  4  |  5  |   |  %  | HOME| END | INS | DEL |
+// |  6  |  7  |  8  |  9  |  0  |   |  =  | LFT | DWN |  UP | RGT |
+// |     |     |     |     |     |   |  *  |  +  |  -  |  .  |  /  |
+// extra?: ^ _
+
+// : SYMBOL Layer (2) - A
+// ------------------------------------------------------------------
+// |  !  |  @  |  £  |  $  |  ^  |   |     |  &  |  `  |  '  |  "  |
+// |  <  |  (  |  )  |  >  |  ?  |   |    |     |     |     |  \  |
+// |  {  |  [  |  ]  |  }  |  #  |   |  _  |     |  ~  |  |  |  /  |
+// remaning:  * - + : =
 
 // Layer Template
 // ---------------------------------------------------------------------------
@@ -144,6 +142,12 @@
 // // |     |     |     |     |     |   |     |     |     |     |     |
 // //             |     |     |     |   |     |     |     |
         // <layer_name>_layer{ bindings = <
+
+//    &none    &none    &none    &none    &none     &none    &none    &none    &none    &none  
+//    &none    &none    &none    &none    &none     &none    &none    &none    &none    &none  
+//    &none    &none    &none    &none    &none     &none    &none    &none    &none    &none  
+//                               &trans   &trans    &trans   &trans   
+//                               &trans                      &trans
         // >; };
 
 
