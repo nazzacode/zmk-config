@@ -18,13 +18,13 @@
 // Macros
 // ---------------------------------------------------------------------------
 
-// #define COMBO(NAME, BINDINGS, KEYPOS) \
-//   combo_##NAME { \
-//     timeout-ms = <50>; \
-//     bindings = <BINDINGS>; \
-//     key-positions = <KEYPOS>; \
-//     layers = <0>; \
-//   };
+#define COMBO(NAME, BINDINGS, KEYPOS) \
+  combo_##NAME { \
+    timeout-ms = <50>; \
+    bindings = <BINDINGS>; \
+    key-positions = <KEYPOS>; \
+    layers = <0>; \
+  };
 
 / {
 
@@ -51,13 +51,13 @@
 // ---------------------------------------------------------------------------
     combos {
         compatible = "zmk,combos";
-        combo_esc {
-            timeout-ms = <50>;
-            key-positions = <0 1>;
-            bindings = <&kp ESC>;
-        };
+        // combo_esc {
+        //     timeout-ms = <50>;
+        //     key-positions = <0 1>;
+        //     bindings = <&kp ESC>;
+        // };
 
-        // COMBO(esc, &kp ESC, 0 1)
+        COMBO(esc, &kp ESC, 0 1)
     };
 
 // Keymap
