@@ -52,7 +52,7 @@
     combos {
         compatible = "zmk,combos";
 
-        COMBO(esc, &kp ESC, 0 1);
+        COMBO(esc, &kp ESC, 0 1)
     };
 
 // Keymap
