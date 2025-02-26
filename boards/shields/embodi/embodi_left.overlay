@@ -15,7 +15,7 @@
     , <&gpio0  9  GPIO_ACTIVE_HIGH>  // 3 index inside
     , <&gpio0 10  GPIO_ACTIVE_HIGH>  // 4 index outside
     , <&gpio1  0  GPIO_ACTIVE_HIGH>; // 5 thumb
-                                         // (6 right thumb)
+                                     // (6 right thumb)
 	row-gpios 
 	= <&gpio1 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // row 0
 	, <&gpio1 13 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // row 1
