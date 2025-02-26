@@ -15,7 +15,7 @@
 #include <dt-bindings/zmk/mouse.h>
 #include <dt-bindings/zmk/outputs.h>
 
-// Macros
+// Combo helper
 // ---------------------------------------------------------------------------
 
 #define COMBO(NAME, BINDINGS, KEYPOS) \
@@ -45,6 +45,7 @@
             tapping-term-ms = <200>;
             bindings = <&sl 1>, <&to 1>;
         };
+        // what hapens if held? should release on release.
     };
 
 // Combos
@@ -57,7 +58,8 @@
         //     bindings = <&kp ESC>;
         // };
 
-        COMBO(esc, &kp ESC, 0 1)
+        COMBO(ESC, &kp ESC, 0 1)
+        COMBO(L0, &to 0, 23 24)
     };
 
 // Keymap
@@ -100,7 +102,7 @@
    &none    &none    &none     &none    &none     &none    &none    &none    &none    &none  
    &sk LGUI &sk LALT &sk LCTRL &sk LGUI &none     &none    &kp LEFT &kp DOWN &kp UP   &kp RIGHT
    &none    &none    &none     &none    &none     &none    &none    &none    &none    &none  
-                               &trans   &trans    &trans   &trans   
+                               &to 0    &trans    &trans   &trans   
                                &trans                      &trans
         >; };
 
