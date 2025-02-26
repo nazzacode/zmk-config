@@ -73,7 +73,7 @@
 // |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U  |  I  |  O  |  P  | 
 // |  A  |  S  |  D  |  F  |  G  |   | ;(:)|  H  |  J  |  K  |  L  | 
 // |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M  | ,(<)| .(>)| /(?)| 
-//                   | ESC | BSP |   | SPC | RET |                  
+//             | ESC |     | BSP |   | SPC |     | RET |                  
 //                   | TAB |               | MB1 |  
 ////    ESC | TAB | SPC                         RET |     | BSP      // | Chord 
 // home row mods: &mt LGUI A &mt LALT S &mt LCTRL D &mt LSHFT F &kp G         &kp SEMI  &mt RSHFT H  &mt RCTRL J &mt RALT K &mt RGUI L
@@ -82,11 +82,10 @@
 
         default_layer{ bindings = <
 
-   &kp Q &kp W &kp E &kp R       &kp T        &kp Y       &kp U    &kp I     &kp O   &kp P    
-   &kp A &kp S &kp D &kp F       &kp G        &kp SEMI    &kp H    &kp J     &kp K   &kp L
-   &kp Z &kp X &kp C &kp V       &kp B        &kp N       &kp M    &kp COMMA &kp DOT &kp FSLH 
-                     &tdl1       &mkp MB1     &kp SPACE   &kp TAB
-                     &kp BSPC                             &kp RET
+   &kp Q &kp W &kp E &kp R    &kp T      &kp Y     &kp U   &kp I     &kp O   &kp P    
+   &kp A &kp S &kp D &kp F    &kp G      &kp SEMI  &kp H   &kp J     &kp K   &kp L
+   &kp Z &kp X &kp C &kp V    &kp B      &kp N     &kp M   &kp COMMA &kp DOT &kp FSLH 
+               &tdl1 &kp BSPC &mkp MB1   &kp SPACE &kp RET &kp TAB
 
         >; };       
                     // old thumb cluster
@@ -102,8 +101,7 @@
    &none    &none    &none     &none    &none     &none    &none    &none    &none    &none  
    &sk LGUI &sk LALT &sk LCTRL &sk LGUI &none     &none    &kp LEFT &kp DOWN &kp UP   &kp RIGHT
    &none    &none    &none     &none    &none     &none    &none    &none    &none    &none  
-                               &to 0    &trans    &trans   &trans   
-                               &trans                      &trans
+                     &to 0     &trans   &trans    &trans   &trans   &trans
         >; };
 
 
@@ -115,11 +113,10 @@
 
         num_layer{ bindings = <
 
-   &kp EXCL  &kp DQT  &kp HASH  &kp DLLR &kp PRCNT &kp CARET &kp AMPS &kp ASTRK &kp LPAR &kp RPAR
-   &kp N1    &kp N2   &kp N3    &kp N4   &kp N5    &kp N6    &kp N7   &kp N8    &kp N9   &kp N0 
-   &kp GRAVE &kp APOS &kp MINUS &kp PLUS &kp NUHS  &kp BSLH  &kp LBRC &kp LBKT  &kp RBKT &kp LBRC
-                                &trans   &trans    &trans    &trans    
-                                &trans                       &trans 
+   &kp EXCL  &kp DQT  &kp HASH  &kp DLLR &kp PRCNT   &kp CARET &kp AMPS &kp ASTRK &kp LPAR &kp RPAR
+   &kp N1    &kp N2   &kp N3    &kp N4   &kp N5      &kp N6    &kp N7   &kp N8    &kp N9   &kp N0 
+   &kp GRAVE &kp APOS &kp MINUS &kp PLUS &kp NUHS    &kp BSLH  &kp LBRC &kp LBKT  &kp RBKT &kp LBRC
+                      &trans    &trans   &trans      &trans    &trans   &trans 
 
         >; };
 
@@ -134,8 +131,7 @@
    &kp F1       &kp F2       &kp F3       &kp F4       &kp F5       &kp F6    &kp F7   &kp F8   &kp F9   &kp F10
    &kp F11      &kp F12      &kp C_PP     &kp C_PREV   &kp C_NEXT   &kp PSCRN &kp LEFT &kp DOWN &kp UP   &kp RIGHT
    &kp C_BRI_DN &kp C_BRI_UP &kp C_VOL_DN &kp C_VOL_UP &kp C_MUTE   &mkp MB5  &mkp MB1 &mkp MB3 &mkp MB2 &mkp MB4
-                                          &trans       &trans       &trans    &trans   
-                                          &trans                              &trans
+                             &trans       &trans       &trans       &trans    &trans   &trans 
         >; };
 
 // : SETTINGS Layer
@@ -148,11 +144,10 @@
 
         settings_layer{ bindings = <
 
-   &sys_reset &bootloader    &none    &none    &none     &none    &kp HOME &kp END  &kp INS  &kp DEL  
-   &bt BT_CLR &bt BT_CLR_ALL &none    &none    &none     &none    &none    &none    &none    &none  
-   &none      &none          &none    &none    &none     &none    &none    &none    &none    &none  
-                                      &trans   &trans    &trans   &trans   
-                                      &trans                      &trans
+   &sys_reset &bootloader    &none  &none    &none    &none  &kp HOME &kp END &kp INS &kp DEL  
+   &bt BT_CLR &bt BT_CLR_ALL &none  &none    &none    &none  &none    &none   &none   &none  
+   &none      &none          &none  &none    &none    &none  &none    &none   &none   &none  
+                             &trans &trans   &trans   &trans &trans   &trans
 
         >; };
     };
