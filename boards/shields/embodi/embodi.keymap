@@ -63,10 +63,10 @@
                     //  &lt 3 TAB                          &mkp MB1
 
 
-// : SOMTHING Layer (x)
+// : NAV Layer (x)?
 // -----------------------------------------------------------------
 
-        <layer_name>_layer{ bindings = <
+        nav_layer{ bindings = <
 
    &none    &none    &none     &none    &none     &none    &none    &none    &none    &none  
    &sk LGUI &sk LALT &sk LCTRL &sk LGUI &none     &none    &kp LEFT &kp DOWN &kp UP   &kp RIGHT
