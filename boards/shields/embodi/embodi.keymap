@@ -24,6 +24,13 @@
             tapping-term-ms = <200>;   
             bindings = <&mo>, <&mkp>;
         }; 
+
+        tdslto: tap_dance_sticky_layer_to_layer {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&sl N1>, <&to N2>;
+        };
     };
 
 // Keymap
@@ -44,15 +51,33 @@
 
         default_layer{ bindings = <
 
-   &kp Q &kp W &kp E &kp R     &kp T        &kp Y       &kp U    &kp I     &kp O   &kp P    
-   &kp A &kp S &kp D &kp F     &kp G        &kp SEMI    &kp H    &kp J     &kp K   &kp L
-   &kp Z &kp X &kp C &kp V     &kp B        &kp N       &kp M    &kp COMMA &kp DOT &kp FSLH 
-                     &lt 2 ESC &lt 1 BSPC   &kp SPACE   &kp RET
-                     &lt 3 TAB                          &mkp MB1
+   &kp Q &kp W &kp E &kp R       &kp T        &kp Y       &kp U    &kp I     &kp O   &kp P    
+   &kp A &kp S &kp D &kp F       &kp G        &kp SEMI    &kp H    &kp J     &kp K   &kp L
+   &kp Z &kp X &kp C &kp V       &kp B        &kp N       &kp M    &kp COMMA &kp DOT &kp FSLH 
+                     &tdslto 1 1 &mkp MB1     &kp SPACE   &tdslto 2 2
+                     &tdslto 3 3                          &tdslto 4 4
 
         >; };       
+                    // old thumb cluster
+                    //  &lt 2 ESC &lt 1 BSPC   &kp SPACE   &kp RET
+                    //  &lt 3 TAB                          &mkp MB1
+
+
+// : SOMTHING Layer (x)
+// -----------------------------------------------------------------
+
+        <layer_name>_layer{ bindings = <
+
+   &none    &none    &none     &none    &none     &none    &none    &none    &none    &none  
+   &sk LGUI &sk LALT &sk LCTRL &sk LGUI &none     &none    &kp LEFT &kp DOWN &kp UP   &kp RIGHT
+   &none    &none    &none     &none    &none     &none    &none    &none    &none    &none  
+                               &trans   &trans    &trans   &trans   
+                               &trans                      &trans
+        >; };
+
 
 // : NUM Layer (1)
+// -----------------------------------------------------------------
 // |  !  |  "  |  £  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  |
 // |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  |
 // | `(¬)| '(@)| -(_)| +(=)| #(~)|   | \(|)|  {  |  [  |  ]  |  }  |
@@ -68,6 +93,7 @@
         >; };
 
 // : FN Layer (2)
+// -----------------------------------------------------------------
 // |  F1 |  F2 |  F3 |  F4 |  F5 |   | F6  |  F7 |  F8 |  F9 | F10 |
 // | F11 | F12 |  PP | PRV | NXT |   | SST | LFT | DWN |  UP | RGT |
 // |  VD |  VU |  BD |  BU | MTE |   | MB5 | MB1 | MB3 | MB2 | MB4 |
