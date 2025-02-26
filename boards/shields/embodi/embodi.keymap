@@ -53,12 +53,13 @@
         compatible = "zmk,combos";
 
         COMBO(esc, &kp ESC, 0 1);
-    }
+    };
 
 // Keymap
 // ---------------------------------------------------------------------------
 
-    keymap { compatible = "zmk,keymap";
+    keymap { 
+        compatible = "zmk,keymap";
 
 // : DEFAULT Layer (0)
 // -----------------------------------------------------------------
