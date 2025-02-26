@@ -160,7 +160,7 @@
 // // |     |     |     |     |     |   |     |     |     |     |     |
 // // |     |     |     |     |     |   |     |     |     |     |     |
 // //             |     |     |     |   |     |     |     |
-        // <layer_name>_layer{ bindings = <
+        // layer_name_layer{ bindings = <
 
 //    &none    &none    &none    &none    &none     &none    &none    &none    &none    &none  
 //    &none    &none    &none    &none    &none     &none    &none    &none    &none    &none  
