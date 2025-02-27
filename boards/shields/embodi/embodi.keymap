@@ -117,7 +117,7 @@
    &kp Q &kp W &kp E  &kp R    &kp T      &kp Y     &kp U   &kp I     &kp O   &kp P    
    &kp A &kp S &kp D  &kp F    &kp G      &kp SEMI  &kp H   &kp J     &kp K   &kp L
    &kp Z &kp X &kp C  &kp V    &kp B      &kp N     &kp M   &kp COMMA &kp DOT &kp FSLH 
-               &td_l1 &to 0    &mkp MB1   &kp SPACE &sl 2  &td_l3
+               &td_l1 &to 0    &mkp MB1   &kp SPACE &kp N1  &td_l3
 
         >; };       
                     // old thumb cluster
