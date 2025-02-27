@@ -90,8 +90,8 @@
         COMBO(TAB,  &kp TAB,   2  3)
         COMBO(BSPC, &kp BSPC,  6  7)
         COMBO(RET,  &kp RET,   7  8)
-        // COMBO(, &kp ,  )
-        COMBO(L0, &to 0, 23 24) // how/where to get back to L0?
+     // COMBO(,     &kp    ,   0  0)
+        COMBO(L0,   &to 0,    23 24) // how/where to get back to L0?
     };
 
 // Keymap
@@ -117,7 +117,7 @@
    &kp Q &kp W &kp E  &kp R    &kp T      &kp Y     &kp U   &kp I     &kp O   &kp P    
    &kp A &kp S &kp D  &kp F    &kp G      &kp SEMI  &kp H   &kp J     &kp K   &kp L
    &kp Z &kp X &kp C  &kp V    &kp B      &kp N     &kp M   &kp COMMA &kp DOT &kp FSLH 
-               &td_l1 &to 0    &mkp MB1   &kp SPACE &td_l2  &td_l3
+               &td_l1 &to 0    &mkp MB1   &kp SPACE &sl 2  &td_l3
 
         >; };       
                     // old thumb cluster
@@ -125,7 +125,7 @@
                     //  &lt 3 TAB                          &mkp MB1
 
 
-// : NAV Layer (x)?
+// : NAV Layer (1)?
 // -----------------------------------------------------------------
 
         nav_layer{ bindings = <
@@ -137,7 +137,7 @@
         >; };
 
 
-// : NUM Layer (1)
+// : NUM Layer (2)
 // -----------------------------------------------------------------
 // |  !  |  "  |  £  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  |
 // |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  |
@@ -152,7 +152,7 @@
 
         >; };
 
-// : FN Layer (2)
+// : FN Layer (3)
 // -----------------------------------------------------------------
 // |  F1 |  F2 |  F3 |  F4 |  F5 |   | F6  |  F7 |  F8 |  F9 | F10 |
 // | F11 | F12 |  PP | PRV | NXT |   | SST | LFT | DWN |  UP | RGT |
@@ -166,7 +166,7 @@
                              &trans       &trans       &trans       &trans    &trans   &trans 
         >; };
 
-// : SETTINGS Layer
+// : SETTINGS Layer (4)
 // -----------------------------------------------------------------
 // | RST | BCL |     |     |     |   |     |     |     |     |     |
 // |  B1 |  B2 |  B3 |  B4 |     |   |     |     |     |     |     |
