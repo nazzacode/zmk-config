@@ -108,24 +108,15 @@
 // IDEA: could use mod-morph to give thumb clusters 2nd &kp behaviour?
 // ? &lt not on spc as you hold it ?
 
-
-// ! main 
-        // default_layer{ bindings = <
-//    &kp Q &kp W &kp E  &kp R    &kp T      &kp Y     &kp U   &kp I     &kp O   &kp P    
-//    &kp A &kp S &kp D  &kp F    &kp G      &kp SEMI  &kp H   &kp J     &kp K   &kp L
-//    &kp Z &kp X &kp C  &kp V    &kp B      &kp N     &kp M   &kp COMMA &kp DOT &kp FSLH 
+        default_layer{ bindings = <
+   &kp Q &kp W &kp E  &kp R    &kp T &kp N1   &kp N4 &kp Y     &kp U   &kp I     &kp O   &kp P    
+   &kp A &kp S &kp D  &kp F    &kp G &kp N2   &kp N5 &kp SEMI  &kp H   &kp J     &kp K   &kp L
+   &kp Z &kp X &kp C  &kp V    &kp B &kp N3   &kp N6 &kp N     &kp M   &kp COMMA &kp DOT &kp FSLH 
+        >; };       
             //    &td_l1 &to 0    &mkp MB1   &kp SPACE &kp N1  &td_l3
-        // >; };       
                     // old thumb cluster
                     //  &lt 2 ESC &lt 1 BSPC   &kp SPACE   &kp RET
                     //  &lt 3 TAB                          &mkp MB1
-
-// ! test
-        default_layer{ bindings = <
-
-               &kp N1 &kp N2 &kp N3   &kp N4 &kp N5 &kp N6
-
-        >; };       
 
 // : NAV Layer (1)?
 // -----------------------------------------------------------------
