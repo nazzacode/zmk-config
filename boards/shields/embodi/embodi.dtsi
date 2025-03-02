@@ -4,14 +4,7 @@
  * SPDX-License-Identifier: MIT
  */
 
-//  NOTE: this is the file that confuses me the most.
-
 #include <dt-bindings/zmk/matrix_transform.h>
-
-// ? seen elsewhere ? 
-// &embodi_layout {
-//     transform = <&default_transform>;
-// };
 
 / {
 	chosen {
@@ -24,13 +17,10 @@
 	// Define matrix transformation
 	default_transform: keymap_transform_0 {
 		compatible = "zmk,matrix-transform";
-		columns = <2>;
 		rows = <3>;
+		columns = <2>;
 		map = <
-			RC(0,0) RC(0,1)
-			RC(1,0) RC(1,1)
-			RC(2,0) RC(2,1)  
-							
+			RC(0,0) RC(1,0) RC(2,0)   RC(0,1) RC(1,1) RC(2,1)							
 		>;	
 	};
 
@@ -52,9 +42,7 @@
 	kscan0: kscan {
 		compatible = "zmk,kscan-gpio-matrix";
         diode-direction = "col2row";
-		// row-gpios 
-		// 	= <&gpio1 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // L-row0
-		// 	, <&gpio1 13 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // L-row1
-		// 	, <&gpio1 15 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>; // L-row2
+		// shared gpios moved to [lhs,rhs] overlay files
+		//// row-gpios = <&gpio1 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
 	};
 };
