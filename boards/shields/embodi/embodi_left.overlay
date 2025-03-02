@@ -9,6 +9,7 @@
 //kscan0 is the keyboard scanner driver (typically kscan-matrix in Zephyr).
 &kscan0 {
     col-gpios 
+    // ! main 
     // = <&gpio0 31  GPIO_ACTIVE_HIGH>  // 0 pinky
     // , <&gpio0 29  GPIO_ACTIVE_HIGH>  // 1 ring
     // , <&gpio0  2  GPIO_ACTIVE_HIGH>  // 2 middle

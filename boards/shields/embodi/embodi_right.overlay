@@ -7,8 +7,9 @@
 #include "embodi.dtsi"
 
 &default_transform {
-    col-offset = <1>;
+    // ! main
     // col-offset = <6>;
+    col-offset = <1>;
 };
 
 &kscan0 {
