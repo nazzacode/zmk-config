@@ -4,11 +4,8 @@
  * SPDX-License-Identifier: MIT
  */
 
- // IDEA: Have 2 keymaps (1 as close to QWERTY satndard as possible, 1 more opinionated) 
- // TODO: make a seperate keymap.md file for all the notes / commments 
-
 // Imports
-// ---------------------------------------------------------------------------
+// -----------------------------------------------------------------------------------------------
 
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
@@ -17,18 +14,17 @@
 #include <dt-bindings/zmk/outputs.h>
 
 // Layer Names
-// ---------------------------------------------------------------------------
+// -----------------------------------------------------------------------------------------------
 
-// TODO: update
 #define DEFAULT 0
 #define NAV     1
 #define SYM     2
-#define MOUSE   3
+// #define MOUSE   3
 
-// Combo helpe function
-// ---------------------------------------------------------------------------
+// Combo builder
+// -----------------------------------------------------------------------------------------------
 
-// Function to define combo from single line with standard parameters
+// Function to build single line combo
 #define COMBO(NAME, BINDINGS, KEYPOS) \
   combo_##NAME { \
     timeout-ms = <50>; \
@@ -37,31 +33,32 @@
     layers = <0>; \
   };
 
+
 / {
 
 // Combos (Chords)
-// ---------------------------------------------------------------------------
+// -----------------------------------------------------------------------------------------------
 
-// Key numbering
+// Combo key numbering
+// -----------------------------------------------------------------------------
 // |  0  |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  | 10  | 11  |
 // | 12  | 13  | 14  | 15  | 16  | 17  |   | 18  | 19  | 20  | 21  | 22  | 23  |
 // | 24  | 25  | 26  | 27  | 28  | 29  |   | 30  | 31  | 32  | 33  | 34  | 35  |
 
+// combo ideas: key repeat, [MB2..MB5], symbols?
+
     combos {
         compatible = "zmk,combos";
-
         COMBO(L0,   &to 0,    0  1) // ? return to L0
         COMBO(ESC,  &kp ESC,  1  2)
         COMBO(TAB,  &kp TAB,  2  3)
         COMBO(BSPC, &kp BSPC, 8  9)
         COMBO(RET,  &kp RET,  9 10)
+        // COMBO(,     &kp    ,  0  0)
     };
-    // Possible combos: key repeat, [MB2..MB5], symbols?
-    // Template:
-    //  COMBO(,     &kp    ,  0  0)
 
 // Behaviors
-// ---------------------------------------------------------------------------
+// -----------------------------------------------------------------------------------------------
 
     behaviors {
 
@@ -73,18 +70,21 @@
             tapping-term-ms = <200>;
             bindings = <&sl 0>, <&to 0>;
         };
+
         td_nav: tap_dance_layer_nav {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
             bindings = <&sl NAV>, <&to NAV>;
         };
+
         td_sym: tap_dance_layer_sym {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
             bindings = <&sl SYM>, <&to SYM>;
         };
+
         td_l3: tap_dance_layer_3 {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
@@ -94,13 +94,15 @@
     };
 
 // Keymap
-// ---------------------------------------------------------------------------
+// -----------------------------------------------------------------------------------------------
 
     keymap { 
         compatible = "zmk,keymap";
 
-// : DEFAULT Layer (0)
-// -----------------------------------------------------------------
+// DEFAULT Layer (0)
+// -----------------------------------------------------------------------------------------------
+
+// ---------------------------------------------------------------------
 // |  Q   |  W   |   E  |  R   |  T  |   |  Y  |  U  |  I  |  O  |  P  |
 //             (ESC)  (TAB)                        (BSP) (RET)
 // |A(ALT)|S(CTR)|D(SHF)|F(GUI)|  G  |   |  H  |  J  |  K  |  L  | ;(:)|
@@ -118,8 +120,8 @@
 // IDEA: could use mod-morph to give thumb clusters 2nd &kp behaviour?
 // ? &lt not on spc as you hold it ?
 
-// : NAV Layer (1)
-// -----------------------------------------------------------------
+// NAV Layer (1)
+// -----------------------------------------------------------------------------------------------
 
         nav_layer{ bindings = <
 
@@ -130,7 +132,9 @@
         >; };
 
 
-// : SYM Layer (2)
+// SYM Layer (2)
+// -----------------------------------------------------------------------------------------------
+
 // -----------------------------------------------------------------
 // |  !  |  "  |  £  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  |
 // |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  |
@@ -144,35 +148,5 @@
 
         >; };
 
-// : FN Layer (3)
-// -----------------------------------------------------------------
-// |  F1 |  F2 |  F3 |  F4 |  F5 |   | F6  |  F7 |  F8 |  F9 | F10 |
-// | F11 | F12 |  PP | PRV | NXT |   | SST | LFT | DWN |  UP | RGT |
-// |  VD |  VU |  BD |  BU | MTE |   | MB5 | MB1 | MB3 | MB2 | MB4 |
-
-//         fn_layer{ bindings = <
-
-//    &kp F1       &kp F2       &kp F3       &kp F4       &kp F5       &kp F6    &kp F7   &kp F8   &kp F9   &kp F10
-//    &kp F11      &kp F12      &kp C_PP     &kp C_PREV   &kp C_NEXT   &kp PSCRN &kp LEFT &kp DOWN &kp UP   &kp RIGHT
-//    &kp C_BRI_DN &kp C_BRI_UP &kp C_VOL_DN &kp C_VOL_UP &kp C_MUTE   &mkp MB5  &mkp MB1 &mkp MB3 &mkp MB2 &mkp MB4
-//                              &trans       &trans       &trans       &trans    &trans   &trans 
-//         >; };
-
-// : SETTINGS Layer (4)
-// -----------------------------------------------------------------
-// | RST | BCL |     |     |     |   |     |     |     |     |     |
-// |  B1 |  B2 |  B3 |  B4 |     |   |     |     |     |     |     |
-// |     |     |     |     |     |   |     |     |     |     |     |
-//             |     |     |     |   |     |     |     |
-// WHERE: RST=reset, BCL=bluetooth-clear
-
-//         settings_layer{ bindings = <
-
-//    &sys_reset &bootloader    &none  &none    &none    &none  &kp HOME &kp END &kp INS &kp DEL  
-//    &bt BT_CLR &bt BT_CLR_ALL &none  &none    &none    &none  &none    &none   &none   &none  
-//    &none      &none          &none  &none    &none    &none  &none    &none   &none   &none  
-//                              &trans &trans   &trans   &trans &trans   &trans
-
-//         >; };
     };
 };

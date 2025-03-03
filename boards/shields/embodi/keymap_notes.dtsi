@@ -22,15 +22,48 @@
 //                               &trans                      &trans
 //         >; };
 
-// Possible Layouts
-// ---------------------------------------------------------------------------
-
 // (old) combos numbering
-// -----------------------------------------------------------------
+// ---------------------------------------------------------------------------
 // |  0  |  1  |  2  |  3  |  4  |   |  5  |  6  |  7  |  8  |  9  |
 // | 10  | 11  | 12  | 13  | 14  |   | 15  | 26  | 27  | 28  | 29  |
 // | 20  | 21  | 22  | 23  | 24  |   | 25  | 26  | 27  | 28  | 29  |
 //             | 30  | 31  | 32  |   | 33  | 34  | 35  |
+
+
+// Possible Layouts
+// ---------------------------------------------------------------------------
+
+// : FN Layer (3)
+// -----------------------------------------------------------------
+// |  F1 |  F2 |  F3 |  F4 |  F5 |   | F6  |  F7 |  F8 |  F9 | F10 |
+// | F11 | F12 |  PP | PRV | NXT |   | SST | LFT | DWN |  UP | RGT |
+// |  VD |  VU |  BD |  BU | MTE |   | MB5 | MB1 | MB3 | MB2 | MB4 |
+
+//         fn_layer{ bindings = <
+
+//    &kp F1       &kp F2       &kp F3       &kp F4       &kp F5       &kp F6    &kp F7   &kp F8   &kp F9   &kp F10
+//    &kp F11      &kp F12      &kp C_PP     &kp C_PREV   &kp C_NEXT   &kp PSCRN &kp LEFT &kp DOWN &kp UP   &kp RIGHT
+//    &kp C_BRI_DN &kp C_BRI_UP &kp C_VOL_DN &kp C_VOL_UP &kp C_MUTE   &mkp MB5  &mkp MB1 &mkp MB3 &mkp MB2 &mkp MB4
+//                              &trans       &trans       &trans       &trans    &trans   &trans 
+//         >; };
+
+// : SETTINGS Layer (4)
+// -----------------------------------------------------------------
+// | RST | BCL |     |     |     |   |     |     |     |     |     |
+// |  B1 |  B2 |  B3 |  B4 |     |   |     |     |     |     |     |
+// |     |     |     |     |     |   |     |     |     |     |     |
+//             |     |     |     |   |     |     |     |
+// WHERE: RST=reset, BCL=bluetooth-clear
+
+//         settings_layer{ bindings = <
+
+//    &sys_reset &bootloader    &none  &none    &none    &none  &kp HOME &kp END &kp INS &kp DEL  
+//    &bt BT_CLR &bt BT_CLR_ALL &none  &none    &none    &none  &none    &none   &none   &none  
+//    &none      &none          &none  &none    &none    &none  &none    &none   &none   &none  
+//                              &trans &trans   &trans   &trans &trans   &trans
+
+//         >; };
+
 
 // : NUM Layer - Keypad
 // |     |     |     |     |     |   |  +  |  7  |  8  |  9  |  *  |
