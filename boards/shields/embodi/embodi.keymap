@@ -16,79 +16,82 @@
 #include <dt-bindings/zmk/mouse.h>
 #include <dt-bindings/zmk/outputs.h>
 
-// Combo helper
+// Layer Names
 // ---------------------------------------------------------------------------
 
-// #define COMBO(NAME, BINDINGS, KEYPOS) \
-//   combo_##NAME { \
-//     timeout-ms = <50>; \
-//     bindings = <BINDINGS>; \
-//     key-positions = <KEYPOS>; \
-//     layers = <0>; \
-//   };
+// TODO: update
+#define DEFAULT 0
+#define NAV     1
+#define SYM     2
+#define MOUSE   3
+
+// Combo helpe function
+// ---------------------------------------------------------------------------
+
+// Function to define combo from single line with standard parameters
+#define COMBO(NAME, BINDINGS, KEYPOS) \
+  combo_##NAME { \
+    timeout-ms = <50>; \
+    bindings = <BINDINGS>; \
+    key-positions = <KEYPOS>; \
+    layers = <0>; \
+  };
 
 / {
+
+// Combos (Chords)
+// ---------------------------------------------------------------------------
+
+// Key numbering
+// |  0  |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  | 10  | 11  |
+// | 12  | 13  | 14  | 15  | 16  | 17  |   | 18  | 19  | 20  | 21  | 22  | 23  |
+// | 24  | 25  | 26  | 27  | 28  | 29  |   | 30  | 31  | 32  | 33  | 34  | 35  |
+
+    combos {
+        compatible = "zmk,combos";
+
+        COMBO(L0,   &to 0,    0  1) // ? return to L0
+        COMBO(ESC,  &kp ESC,  1  2)
+        COMBO(TAB,  &kp TAB,  2  3)
+        COMBO(BSPC, &kp BSPC, 8  9)
+        COMBO(RET,  &kp RET,  9 10)
+    };
+    // Possible combos: key repeat, [MB2..MB5], symbols?
+    // Template:
+    //  COMBO(,     &kp    ,  0  0)
 
 // Behaviors
 // ---------------------------------------------------------------------------
 
-    // behaviors {
-    //     mkt: mouse_key_tap {
-    //         compatible = "zmk,behavior-hold-tap";
-    //         #binding-cells = <2>;
-    //         tapping-term-ms = <200>;   
-    //         bindings = <&mo>, <&mkp>;
-    //     }; 
+    behaviors {
 
-    //     td_l0: tap_dance_layer0 {
-    //         compatible = "zmk,behavior-tap-dance";
-    //         #binding-cells = <0>;
-    //         tapping-term-ms = <200>;
-    //         bindings = <&sl 0>, <&to 0>;
-    //     };
-    //     // ? what hapens if held ? should release on release.
-
-    //     td_l1: tap_dance_layer_1 {
-    //         compatible = "zmk,behavior-tap-dance";
-    //         #binding-cells = <0>;
-    //         tapping-term-ms = <200>;
-    //         bindings = <&sl 1>, <&to 1>;
-    //     };
-
-    //     td_l2: tap_dance_layer_2 {
-    //         compatible = "zmk,behavior-tap-dance";
-    //         #binding-cells = <0>;
-    //         tapping-term-ms = <200>;
-    //         bindings = <&sl 2>, <&to 2>;
-    //     };
-
-    //     td_l3: tap_dance_layer_3 {
-    //         compatible = "zmk,behavior-tap-dance";
-    //         #binding-cells = <0>;
-    //         tapping-term-ms = <200>;
-    //         bindings = <&sl 3>, <&to 3>;
-    //     };
-    // };
-
-// Combos
-// ---------------------------------------------------------------------------
-
-// -----------------------------------------------------------------
-// |  0  |  1  |  2  |  3  |  4  |   |  5  |  6  |  7  |  8  |  9  |
-// | 10  | 11  | 12  | 13  | 14  |   | 15  | 26  | 27  | 28  | 29  |
-// | 20  | 21  | 22  | 23  | 24  |   | 25  | 26  | 27  | 28  | 29  |
-//             | 30  | 31  | 32  |   | 33  | 34  | 35  |
-// ? wich numbering is it?
-    // combos {
-    //     compatible = "zmk,combos";
-
-    //     COMBO(CAPS, &kp CAPS,  1  2) // ! should be escape 
-    //     COMBO(TAB,  &kp TAB,   2  3)
-    //     COMBO(BSPC, &kp BSPC,  6  7)
-    //     COMBO(RET,  &kp RET,   7  8)
-    //     COMBO(L0,   &to 0,    23 24) // how/where to get back to L0?
-    //  // COMBO(,     &kp    ,   0  0)
-    // };
+        // TODO: switch to mod morph
+        // ? what hapens if held ? should release on release.
+        td_l0: tap_dance_layer0 {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&sl 0>, <&to 0>;
+        };
+        td_nav: tap_dance_layer_nav {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&sl NAV>, <&to NAV>;
+        };
+        td_sym: tap_dance_layer_sym {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&sl SYM>, <&to SYM>;
+        };
+        td_l3: tap_dance_layer_3 {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&sl 3>, <&to 3>;
+        };
+    };
 
 // Keymap
 // ---------------------------------------------------------------------------
@@ -98,54 +101,48 @@
 
 // : DEFAULT Layer (0)
 // -----------------------------------------------------------------
-// |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U  |  I  |  O  |  P  | 
-// |  A  |  S  |  D  |  F  |  G  |   | ;(:)|  H  |  J  |  K  |  L  | 
-// |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M  | ,(<)| .(>)| /(?)| 
-//             | ESC |     | BSP |   | SPC |     | RET |                  
-//                   | TAB |               | MB1 |  
-////    ESC | TAB | SPC                         RET |     | BSP   d   // | Chord 
-// home row mods: &mt LGUI A &mt LALT S &mt LCTRL D &mt LSHFT F &kp G         &kp SEMI  &mt RSHFT H  &mt RCTRL J &mt RALT K &mt RGUI L
-// IDEA: could use mod-morph to give thumb clusters 2nd &kp behaviour?
-// ? &lt not on spc as you hold it ?
+// |  Q   |  W   |   E  |  R   |  T  |   |  Y  |  U  |  I  |  O  |  P  |
+//             (ESC)  (TAB)                        (BSP) (RET)
+// |A(ALT)|S(CTR)|D(SHF)|F(GUI)|  G  |   |  H  |  J  |  K  |  L  | ;(:)|
+// |  Z   |  X   |   C  |  V   |  B  |   |  N  |  M  | ,(<)| .(>)| /(?)| 
+//               | NAV  |      | MB1 |   | MB1 |     | SYM |                  
+//                      | SHFT |               | SPC |  
 
         default_layer{ bindings = <
 
-   &kp Q &kp W &kp E &kp R &kp T &kp N1   &kp N4 &kp Y    &kp U &kp I     &kp O   &kp P    
-   &kp A &kp S &kp D &kp F &kp G &kp N2   &kp N5 &kp SEMI &kp H &kp J     &kp K   &kp L
-   &kp Z &kp X &kp C &kp V &kp B &kp N3   &kp N6 &kp N    &kp M &kp COMMA &kp DOT &kp FSLH 
+   &kp Q      &kp W       &kp E       &kp R      &kp T &td_nav     &mkp MB1 &kp Y &kp U    &kp I       &kp O       &kp P    
+   &mt LALT A &mt LCTRL S &mt LSHFT D &mt LGUI F &kp G &sk LSHFT   &kp SPC  &kp H &mt RGUI J &mt RSHFT K &mt RCTRL L &mt RALT SEMI
+   &kp Z      &kp X       &kp C       &kp V      &kp B &mkp MB1    &td_sym &kp N &kp M    &kp COMMA   &kp DOT     &kp FSLH 
 
         >; };       
-            //    &td_l1 &to 0    &mkp MB1   &kp SPACE &kp N1  &td_l3
-                    // old thumb cluster
-                    //  &lt 2 ESC &lt 1 BSPC   &kp SPACE   &kp RET
-                    //  &lt 3 TAB                          &mkp MB1
+// IDEA: could use mod-morph to give thumb clusters 2nd &kp behaviour?
+// ? &lt not on spc as you hold it ?
 
-// : NAV Layer (1)?
+// : NAV Layer (1)
 // -----------------------------------------------------------------
 
-//         nav_layer{ bindings = <
+        nav_layer{ bindings = <
 
-//    &none    &none    &none     &none     &none     &none    &none    &none    &none    &none  
-//    &sk LGUI &sk LALT &sk LCTRL &sk LSHFT &none     &none    &kp LEFT &kp DOWN &kp UP   &kp RIGHT
-//    &none    &none    &none     &none     &none     &none    &none    &none    &none    &none  
-//                      &to 0     &trans    &trans    &trans   &trans   &trans
-//         >; };
+   &none    &none    &none     &none     &none &trans   &trans &none &none    &none    &none  &none  
+   &sk LALT &sk LALT &sk LCTRL &sk LSHFT &none &trans   &trans &none &kp LEFT &kp DOWN &kp UP &kp RIGHT
+   &none    &none    &none     &none     &none &trans   &trans &none &none    &none    &none  &none  
+
+        >; };
 
 
-// : NUM Layer (2)
+// : SYM Layer (2)
 // -----------------------------------------------------------------
 // |  !  |  "  |  £  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  |
 // |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  |
 // | `(¬)| '(@)| -(_)| +(=)| #(~)|   | \(|)|  {  |  [  |  ]  |  }  |
 
-//         num_layer{ bindings = <
+        sym_layer{ bindings = <
 
-//    &kp EXCL  &kp DQT  &kp HASH  &kp DLLR &kp PRCNT   &kp CARET &kp AMPS &kp ASTRK &kp LPAR &kp RPAR
-//    &kp N1    &kp N2   &kp N3    &kp N4   &kp N5      &kp N6    &kp N7   &kp N8    &kp N9   &kp N0 
-//    &kp GRAVE &kp APOS &kp MINUS &kp PLUS &kp NUHS    &kp BSLH  &kp LBRC &kp LBKT  &kp RBKT &kp LBRC
-//                       &trans    &trans   &trans      &trans    &trans   &trans 
+   &kp EXCL  &kp DQT  &kp HASH  &kp DLLR &kp PRCNT &trans   &trans &kp CARET &kp AMPS &kp ASTRK &kp LPAR &kp RPAR
+   &kp N1    &kp N2   &kp N3    &kp N4   &kp N5    &trans   &trans &kp N6    &kp N7   &kp N8    &kp N9   &kp N0 
+   &kp GRAVE &kp APOS &kp MINUS &kp PLUS &kp NUHS  &trans   &trans &kp BSLH  &kp LBRC &kp LBKT  &kp RBKT &kp LBRC
 
-//         >; };
+        >; };
 
 // : FN Layer (3)
 // -----------------------------------------------------------------
@@ -179,92 +176,3 @@
 //         >; };
     };
 };
-
-// Unused Layers
-// ---------------------------------------------------------------------------
-
-// : NUM Layer (1) - Keypad
-// |     |     |     |     |     |   |  +  |  7  |  8  |  9  |  *  |
-// |     |     |     |     |     |   |  =  |  4  |  5  |  6  |  0  |
-// |     |     |     |     |     |   |  -  |  1  |  2  |  3  |  /  |
-// missing: . % ^ _ ,
-// note: qute like it. simple no?
-
-// : NUM & NAV Layer (1) - 2 rows
-// -----------------------------------------------------------------
-// |  1  |  2  |  3  |  4  |  5  |   |  %  | HOME| END | INS | DEL |
-// |  6  |  7  |  8  |  9  |  0  |   |  =  | LFT | DWN |  UP | RGT |
-// |     |     |     |     |     |   |  *  |  +  |  -  |  .  |  /  |
-// extra?: ^ _
-
-// : SYMBOL Layer (2) - A
-// ------------------------------------------------------------------
-// |  !  |  @  |  £  |  $  |  ^  |   |     |  &  |  `  |  '  |  "  |
-// |  <  |  (  |  )  |  >  |  ?  |   |    |     |     |     |  \  |
-// |  {  |  [  |  ]  |  }  |  #  |   |  _  |     |  ~  |  |  |  /  |
-// remaning:  * - + : =
-
-// Layer Template
-// ---------------------------------------------------------------------------
-
-// : NAME Layer
-// // -----------------------------------------------------------------
-// // |     |     |     |     |     |   |     |     |     |     |     |
-// // |     |     |     |     |     |   |     |     |     |     |     |
-// // |     |     |     |     |     |   |     |     |     |     |     |
-// //             |     |     |     |   |     |     |     |
-        // layer_name_layer{ bindings = <
-
-//    &none    &none    &none    &none    &none     &none    &none    &none    &none    &none  
-//    &none    &none    &none    &none    &none     &none    &none    &none    &none    &none  
-//    &none    &none    &none    &none    &none     &none    &none    &none    &none    &none  
-//                               &trans   &trans    &trans   &trans   
-//                               &trans                      &trans
-        // >; };
-
-
-// Keymap Reference
-// ---------------------------------------------------------------------------
-
-
-// : DEFAULT Layer (0)
-// -----------------------------------------------------------------
-// |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U  |  I  |  O  |  P  | 
-// |  A  |  S  |  D  |  F  |  G  |   |  ;  |  H  |  J  |  K  |  L  | 
-//// GUI | ALT | CRL | SFT | HYP       HYP | SFT | CRL | ALT | GUI   // | Hold
-////    ESC | TAB | SPC                         RET |     | BSP      // | Chord 
-// |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M  |  ,  |  .  |  /  | 
-//             | MB1 | BSP | SPC |   | RET |     | MB1 |             // 1 space? ESC, TAB, DEL? (if we could get 4...)
-////             L3  | L0  | L4        L2  |  L1 |  L3               // | Hold 
-
-// : SYMBOL Layer (1)
-// ------------------------------------------------------------------
-// |  !  |  @  |  £  |  $  |  %  |   |  ^  |  &  |  `  |  '  |  "  |
-// |  <  |  (  |  )  |  >  |  ?  |   |  :  |  +  |  -  |  *  |  /  |
-// |  {  |  [  |  ]  |  }  |  #  |   |  _  |  =  |  ~  |  |  |  \  |
-//             | MB1 | BSP | SPC |   | RET |     | MB1 |             
-////             L3  | L0  | L4        L2  |  L1 |  L3               // | Hold 
-
-// : NUM Layer (2)
-// -----------------------------------------------------------------
-// |  1  |  2  |  3  |  4  |  5  |   |PSCRN| HOME| END | INS | DEL |
-// |  6  |  7  |  8  |  9  |  0  |   |     | LFT | DWN |  UP | RGT |
-// |     |  %  |  .  |  =  |     |   |     |  +  |  -  |  *  |  /  |
-//             | MB1 | BSP | SPC |   | RET |     | MB1 |
-////             L3  | L0  | L4        L2  |  L1 |  L3               // | Hold 
-
-// : MOUSE Layer (3)
-// -----------------------------------------------------------------
-// |     |     |     |     |     |   |     |     |     |     |     |
-// | MB4 | MB2 | MB3 | MB1 | MB5 |   | MB5 | MB1 | MB3 | MB2 | MB4 |
-// |     |     |     |     |     |   |     |     |     |     |     |
-//             | MB1 | BSP | SPC |   | RET |     | MB1 |             
-////             L3  | L0  | L4        L2  |  L1 |  L3               // | Hold 
-
-// : FUNCTION Layer (4)
-// ------------------------------------------------------------------
-// |  F6 |  F7 |  F8 |  F9 | F10 |   |     |     |     |     |     |
-// |  F1 |  F2 |  F3 |  F4 |  F5 |   |     |     |     |     |     |
-// |     |     | F11 | F12 |     |   |     |     |     |     |     |
-//             | MB1 | BSP | SPC |   | RET |     | MB1 |             
-////             L3  | L0  | L4        L2  |  L1 |  L3               // | Hold 
