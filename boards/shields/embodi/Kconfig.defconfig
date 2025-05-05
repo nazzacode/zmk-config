@@ -21,7 +21,7 @@ endif # ZMK_DISPLAY
 endif # SHIELD_EMBODI_LEFT || SHIELD_EMBODI_RIGHT
 
 # Left half specific
-if SHIELD_EMBODI_LEFT
+if SHIELD_EMBODI_RIGHT
 
 config ZMK_KEYBOARD_NAME
     default "Embodi Keyboard"
