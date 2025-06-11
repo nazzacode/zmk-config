@@ -112,9 +112,9 @@
 
         default_layer{ bindings = <
 
-   &kp Q      &kp W       &kp E       &kp R      &kp T &td_nav     &mkp MB1 &kp Y &kp U    &kp I       &kp O       &kp P    
+   &kp Q      &kp W       &kp E       &kp R      &kp T &td_nav     &mkp MB1 &kp Y &kp U      &kp I       &kp O       &kp P    
    &mt LALT A &mt LCTRL S &mt LSHFT D &mt LGUI F &kp G &sk LSHFT   &kp SPC  &kp H &mt RGUI J &mt RSHFT K &mt RCTRL L &mt RALT SEMI
-   &kp Z      &kp X       &kp C       &kp V      &kp B &mkp MB1    &td_sym &kp N &kp M    &kp COMMA   &kp DOT     &kp FSLH 
+   &kp Z      &kp X       &kp C       &kp V      &kp B &mkp MB1    &td_sym  &kp N &kp M      &kp COMMA   &kp DOT     &kp FSLH 
 
         >; };       
 // IDEA: could use mod-morph to give thumb clusters 2nd &kp behaviour?
