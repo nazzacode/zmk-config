@@ -11,9 +11,9 @@
     // Default configuration for SPI0 pins
     spi0_default: spi0_default {
         group1 {
-            psels = <NRF_PSEL(SPIM_SCK, 0, 20)>, // Clock on P0.20
-                <NRF_PSEL(SPIM_MOSI, 0, 17)>,    // MOSI on P0.17
-                <NRF_PSEL(SPIM_MISO, 0, 17)>;    // MISO on P.017
+            psels = <NRF_PSEL(SPIM_SCK, 0, 20)>, //! Clock on P0.20
+                <NRF_PSEL(SPIM_MOSI, 0, 17)>,    //! MOSI on P0.17
+                <NRF_PSEL(SPIM_MISO, 0, 17)>;    //! MISO on P0.17
         };
     };
     // Sleep configuration for SPI0 pins (power saving mode)
@@ -34,8 +34,7 @@
     pinctrl-0 = <&spi0_default>;     // Use default pin configuration
     pinctrl-1 = <&spi0_sleep>;       // Use sleep pin configuration when in sleep mode
     pinctrl-names = "default", "sleep"; 
-    // Chip Select (nCS) pin configuration
-    cs-gpios = <&gpio0 22 GPIO_ACTIVE_LOW>;
+    cs-gpios = <&gpio0 22 GPIO_ACTIVE_LOW>; //! Chip Select (nCS) on P0.22
 
     // Trackball device configuration
     trackball: trackball@0 {
@@ -43,8 +42,7 @@
         compatible = "pixart,pmw3610";
         reg = <0>;
         spi-max-frequency = <2000000>;
-        // Motion sensor on P0.24 
-        irq-gpios = <&gpio0 24 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+        irq-gpios = <&gpio0 24 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>; //! Motion sensor on P0.24 
         cpi = <600>;
         evt-type = <INPUT_EV_REL>;
         x-input-code = <INPUT_REL_X>;

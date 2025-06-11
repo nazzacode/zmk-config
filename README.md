@@ -12,12 +12,12 @@ boards/shields/my_keyboard/
 │   └── nice_nano_v2.overlay   # Board-specific device tree overlay (SPI, trackball)
 ├── Kconfig.defconfig          # Default config for shield (names, vars, etc.)
 ├── Kconfig.shield             # Shield configuration options (minimal?)
-├── my_keyboard_left.conf      # low-power, BLE, pointing devices, display, etc.
+├── my_keyboard_left.conf      # [low-power, BLE, pointing devices, display, etc]
 ├── my_keyboard_left.overlay   # Left half-specific device tree overlay
-├── my_keyboard_right.conf     # 
-├── my_keyboard_right.overlay  #
-├── my_keyboard.dtsi           # Shared device tree configurations
-└── my_keyboard.keymap         # Keymap configuration
+├── my_keyboard_right.conf     # Mirrors 'left.conf'
+├── my_keyboard_right.overlay  # Mirrors 'left.overlay'
+├── my_keyboard.dtsi           # Shared device tree configurations: [matrix transform]
+└── my_keyboard.keymap         # Keymap
 ├── my_keyboard.zmk.yml        # Shield metadata
 ```
 
