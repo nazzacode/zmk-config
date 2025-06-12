@@ -10,6 +10,7 @@
     col-offset = <6>;
 };
 
+/// test nothing?
 &kscan0 {
     col-gpios                        // (5 left thumb) ...
     = <&gpio1  0  GPIO_ACTIVE_HIGH>  // 6  thumb
