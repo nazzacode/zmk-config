@@ -13,7 +13,7 @@
     , <&gpio0 10  GPIO_ACTIVE_HIGH>  // 1 ring
     , <&gpio1 11  GPIO_ACTIVE_HIGH>  // 2 middle
     , <&gpio0 31  GPIO_ACTIVE_HIGH>  // 3 index inside
-    , <&gpio0 10  GPIO_ACTIVE_HIGH>  // 4 index outside
+    , <&gpio0 29  GPIO_ACTIVE_HIGH>  // 4 index outside
     , <&gpio1  0  GPIO_ACTIVE_HIGH>; // 5 thumb
                                      // ... (6 right thumb)
 
